@@ -20,6 +20,7 @@ int main() {
 	int low = 0;
 	int high = 1;
 	int key;
+	
 	cin >> key;
 	while (key > arr[high]) {
 		low = high;

@@ -15,6 +15,7 @@ int binarymin(int *arr, int s, int e, int key) {
 	int low = abs(arr[s] - key);
 	int high = abs(arr[e] - key);
 	if (low < high) {
+		
 		return arr[s];
 	}
 	else {
