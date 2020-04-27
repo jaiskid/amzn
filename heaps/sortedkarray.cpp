@@ -1,15 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
+vector<int> res;
 void nearlyksorted(int *arr, int n, int k) {
-	priority_queue<int, vector<int>, greater<int>> minheap(arr, arr + k + 1);
-	int index = 0;
+	priority_queue<int, vector<int>, greater<int>> minheap;
 	for (int i = 0; i < n; i++) {
-		arr[index++] = minheap.top();
-		minheap.pop();
 		minheap.push(arr[i]);
+		if (minheap.size() > k) {
+			res.push_back(minheap.top());
+			minheap.pop();
+		}
 	}
 	while (!minheap.empty()) {
-		arr[index++] = minheap.top();
+		res.push_back(minheap.top());
 		minheap.pop();
 	}
 }
@@ -23,5 +25,5 @@ int main() {
 	cin >> k;
 	nearlyksorted(arr, n, k);
 	for (int i = 0; i < n; i++)
-		cout << arr[i] << " ";
+		cout << res[i] << " ";
 }

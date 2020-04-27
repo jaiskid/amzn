@@ -12,7 +12,7 @@ void topkfrequency(int *arr, int n, int k) {
 			minheap.pop();
 	}
 	while (minheap.size() > 0) {
-		cout << minheap.top().first << " ";
+		cout << minheap.top().second << " ";
 		minheap.pop();
 	}
 }

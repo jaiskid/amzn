@@ -1,21 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
-//nlogk
-void kcloset(int *arr, int k, int x, int n) {
+int kcloset(int *arr, int n, int k, int x) {
 	priority_queue<pair<int, int>> maxheap;
-	//store k element
-	for (int i = 0; i < k; i++) {
-		maxheap.push({abs(arr[i] - x), i});
-	}
-	for (int i = k; i < n; i++) {
-		int diff = abs(arr[i] - x);
-		if (diff > maxheap.top().first)
-			continue;
-		maxheap.pop();
-		maxheap.push({diff, i});
+	for (int i = 0; i < n; i++) {
+		maxheap.push({abs(arr[i] - x), arr[i]});
+		if (maxheap.size() > k) {
+			maxheap.pop();
+		}
 	}
 	while (!maxheap.empty()) {
-		cout << arr[maxheap.top().second] << " ";
+		cout << maxheap.top().second << " ";
 		maxheap.pop();
 	}
 }
@@ -29,6 +23,5 @@ int main() {
 	cin >> k;
 	int x;
 	cin >> x;
-	kcloset(arr, k, x, n);
-
+	kcloset(arr, n, k, x);
 }

@@ -1,10 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
+bool compare(int a, int b) {
+	return a < b;
+}
 void frequencysort(int *arr, int n) {
 	unordered_map<int, int> mp;
 	for (int i = 0; i < n; i++)
 		mp[arr[i]]++;
-	priority_queue<pair<int, int>>maxheap;
+	priority_queue<pair<int, int>, compare>maxheap;
 	for (auto i : mp) {
 		maxheap.push({i.second, i.first});
 	}
