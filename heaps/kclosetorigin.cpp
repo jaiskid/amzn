@@ -10,7 +10,7 @@ void kclosetorigin(int arr[][2], int n, int k) {
 	}
 	while (!maxheap.empty()) {
 		pair<int, int>p = maxheap.top().second;
-		cout << p.first << " " << p.second << endl;
+		cout << p.first << " " <<  p.second << endl;
 		maxheap.pop();
 	}
 }

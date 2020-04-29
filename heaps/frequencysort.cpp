@@ -1,13 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
-bool compare(int a, int b) {
-	return a < b;
-}
+#define pii pair<int, int>
+struct comparator {
+	bool operator()(const pii a, const pii b) {
+		if (a.first == b.first) return a.second > b.second;
+		return a.first < b.first;
+	}
+};
 void frequencysort(int *arr, int n) {
 	unordered_map<int, int> mp;
 	for (int i = 0; i < n; i++)
 		mp[arr[i]]++;
-	priority_queue<pair<int, int>, compare>maxheap;
+
+	priority_queue<pii, vector<pii>, comparator>maxheap;
 	for (auto i : mp) {
 		maxheap.push({i.second, i.first});
 	}
