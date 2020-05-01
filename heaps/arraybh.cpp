@@ -18,4 +18,4 @@ int main() {
 	for (int i = 0; i < n; i++)
 		cin >> arr[i];
 	cout << isheap(arr, n);
-}
+}me
