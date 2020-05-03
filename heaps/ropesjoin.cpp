@@ -1,14 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
-int ropesjoincost(int *arr, int n) {
-	priority_queue<int, vector<int>, greater<int>> minheap;
-	for (int i = 0; i < n; i++)
+long long int ropesjoincost(long long int *arr, long long int n) {
+	priority_queue<long long int, vector<long long int>, greater<long long int>> minheap;
+	for (long long int i = 0; i < n; i++)
 		minheap.push(arr[i]);
-	int cost = 0;
+	long long int cost = 0;
 	while (minheap.size() >= 2) {
-		int first = minheap.top();
+		long long int first = minheap.top();
 		minheap.pop();
-		int second = minheap.top();
+		long long int second = minheap.top();
 		minheap.pop();
 		cost = cost + first + second;
 		minheap.push(first + second);
@@ -20,10 +20,15 @@ int ropesjoincost(int *arr, int n) {
 	return cost;
 }
 int main() {
-	int n;
-	cin >> n;
-	int arr[n];
-	for (int i = 0; i < n; i++)
-		cin >> arr[i];
-	cout << ropesjoincost(arr, n);
+	long long int t;
+	cin >> t;
+	while (t--) {
+		long long int n;
+		cin >> n;
+		long long int arr[n];
+		for (long long int i = 0; i < n; i++)
+			cin >> arr[i];
+		cout << ropesjoincost(arr, n) << endl;
+	}
+
 }
