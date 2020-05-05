@@ -33,6 +33,7 @@ int main() {
 	for (int i = 0; i < n; i++)
 		cin >> arr[i];
 	vector<int> v = ngelement(arr, n);
+	
 	for (int i = 0; i < n; i++) {
 		cout << v[i] << " ";
 	}
