@@ -10,13 +10,13 @@ int kadane(int *arr, int n) {
 	return ms;
 }
 int max_circular(int *arr, int n) {
-	int max_kadane = kadane(arr, n);
+	int max_kadane = kadane(arr,n);
 	int wrap = 0;
 	for (int i = 0; i < n; i++) {
 		wrap += arr[i];
 		arr[i] = -arr[i];
 	}
-	wrap = +kadane(arr, n);
+	wrap += kadane(arr, n);
 	return (wrap > max_kadane) ? wrap : max_kadane;
 }
 int main() {
